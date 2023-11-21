@@ -5,11 +5,11 @@ const makeChange = (c) => {
         return;
     }
 
-    // Define the values for each coin
-    const quarterValue = 0.25;
-    const dimeValue = 0.10;
-    const nickelValue = 0.05;
-    const pennyValue = 0.01;
+    // Define the values for each coin multiplied by 100 to avoid floating-point errors
+    const quarterValue = 25;
+    const dimeValue = 10;
+    const nickelValue = 5;
+    const pennyValue = 1;
 
     // Initialize counts for each coin type
     let quarters = 0;
@@ -32,8 +32,6 @@ const makeChange = (c) => {
             pennies++;
             c -= pennyValue;
         }
-        // Round to avoid floating-point errors
-        c = Math.round(c * 100) / 100;
     }
 
     // Create and return the result object
